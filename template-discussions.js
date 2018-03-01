@@ -3,7 +3,7 @@ const canvas = require('canvas-wrapper');
 
 /* Actions */
 var actions = [
-    require('../actions/discussions-delete.js'),
+    require('./actions/discussions-delete.js'),
 ];
 
 class TechOps {
@@ -46,18 +46,18 @@ function buildPutObj(discussion) {
         'published': discussion.published,
         'delayed_post_at': discussion.delayed_post_at,
         'lock_at': discussion.lock_at,
-        'podcast_enabled': discussion.podcast_enabled,
-        'podcast_has_student_posts': discussion.podcast_has_student_posts,
+        // 'podcast_enabled': discussion.podcast_enabled,   /* Not included in get request, FYI */
+        // 'podcast_has_student_posts': discussion.podcast_has_student_posts,   /* Not included in get request, FYI */
         'require_initial_post': discussion.require_initial_post,
-        'assignment': discussion.assignment,
-        'is_announcement': discussion.is_announcement,
+        // 'assignment': discussion.assignment,     /* Not included in get request, FYI */
+        // 'is_announcement': discussion.is_announcement,   /* Not included in get request, FYI */
         'pinned': discussion.pinned,
-        'position_after': discussion.position_after,
-        'group_category_id': discussion.group_category_id,
+        // 'position_after': discussion.position_after,     /* Not included in get request, FYI */
+        // 'group_category_id': discussion.group_category_id,   /*Nnot included in get request, FYI */
         'allow_rating': discussion.allow_rating,
         'only_graders_can_rate': discussion.only_graders_can_rate,
         'sort_by_rating': discussion.sort_by_rating,
-        'specific_sections': discussion.specific_sections,
+        // 'specific_sections': discussion.specific_sections,   /* Not included in get request, FYI */
     };
 }
 
