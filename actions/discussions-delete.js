@@ -9,6 +9,7 @@ module.exports = (course, discussion, callback) => {
     /* Discussions to be deleted, in LOWER case */
     var doomedItems = [
         /questions\s*and\s*conversations/gi,
+        /questions\s*&\s*conversations/gi,
     ];
 
     /* The test returns TRUE or FALSE - action() is called if true */
