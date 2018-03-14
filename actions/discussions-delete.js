@@ -18,7 +18,7 @@ module.exports = (course, discussion, callback) => {
     /* This is the action that happens if the test is passed */
     function action() {
         discussion.techops.delete = true;
-        course.log('Discussions Deleted', {
+        discussion.techops.log('Discussions Deleted', {
             'Title': discussion.title,
             'ID': discussion.id
         });
