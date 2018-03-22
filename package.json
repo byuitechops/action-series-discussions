@@ -4,7 +4,7 @@
     "description": "Action series for Discussions. Used in the D2L-to-Canvas Converstion tool.",
     "main": "template-discussions.js",
     "dependencies": {
-        "canvas-wrapper": "git+https://github.com/byuitechops/Canvas-wrapper.git"
+        "canvas-wrapper": "git+https://github.com/byuitechops/canvas-wrapper.git"
     },
     "devDependencies": {},
     "scripts": {
