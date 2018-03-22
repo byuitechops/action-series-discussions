@@ -15,8 +15,25 @@ class TechOps {
         this.getTitle = getTitle;
         this.setTitle = setTitle;
         this.getID = getID;
+        this.logs = [];
         this.delete = false;
         this.type = 'Discussion';
+    }
+
+    log(title, details) {
+        this.logs.push({ title, details });
+    }
+
+    message(message) {
+        this.logs.push({ title: 'message', details: { message: message }});
+    }
+
+    warning(warning) {
+        this.logs.push({ title: 'warning', details: { warning: warning }});
+    }
+
+    error(error) {
+        this.logs.push({ error: error });
     }
 }
 
@@ -44,20 +61,8 @@ function buildPutObj(discussion) {
         'message': discussion.message,
         'discussion_type': discussion.discussion_type,
         'published': discussion.published,
-        'delayed_post_at': discussion.delayed_post_at,
         'lock_at': discussion.lock_at,
-        // 'podcast_enabled': discussion.podcast_enabled,   /* Not included in get request, FYI */
-        // 'podcast_has_student_posts': discussion.podcast_has_student_posts,   /* Not included in get request, FYI */
         'require_initial_post': discussion.require_initial_post,
-        // 'assignment': discussion.assignment,     /* Not included in get request, FYI */
-        // 'is_announcement': discussion.is_announcement,   /* Not included in get request, FYI */
-        'pinned': discussion.pinned,
-        // 'position_after': discussion.position_after,     /* Not included in get request, FYI */
-        // 'group_category_id': discussion.group_category_id,   /*Nnot included in get request, FYI */
-        'allow_rating': discussion.allow_rating,
-        'only_graders_can_rate': discussion.only_graders_can_rate,
-        'sort_by_rating': discussion.sort_by_rating,
-        // 'specific_sections': discussion.specific_sections,   /* Not included in get request, FYI */
     };
 }
 
@@ -88,11 +93,11 @@ function putItem(course, discussion, callback) {
 }
 
 function getHTML(item) {
-    return null;
+    return item.message;
 }
 
 function setHTML(item, newHTML) {
-    return null;
+    item.message = newHTML;
 }
 
 function getTitle(item) {
