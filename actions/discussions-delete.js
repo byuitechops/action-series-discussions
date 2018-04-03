@@ -34,7 +34,7 @@ module.exports = (course, discussion, callback) => {
     }
 
     /* The Test */
-    if (found != undefined) {
+    if (found !== undefined) {
         action();
     } else {
         callback(null, course, discussion);
