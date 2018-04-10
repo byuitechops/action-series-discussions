@@ -11,8 +11,7 @@ module.exports = (course, discussion, callback) => {
 
     /* Discussions to be deleted, in LOWER case */
     var doomedItems = [
-        /questions\s*and\s*conversations/gi,
-        /questions\s*&\s*conversations/gi,
+        /questions?\s*(and|&)\s*conversations?/gi,
     ];
 
     /* The test returns TRUE or FALSE - action() is called if true */
@@ -20,11 +19,11 @@ module.exports = (course, discussion, callback) => {
 
     /* This is the action that happens if the test is passed */
     function action() {
-        var logCategory = 'Discussion - Deleted';
+        var logCategory = 'Deleted Discussions';
 
         /* If we're running a standards check and not doing any changes... */
         if (course.info.checkStandard === true) {
-            logCategory = 'Discussion - Deprecated';
+            logCategory = 'Deprecated Discussions';
         } else {
             discussion.techops.delete = true;
         }
