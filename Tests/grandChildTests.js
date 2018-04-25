@@ -25,14 +25,16 @@ module.exports = (course, callback) => {
                     return;
                 }
                 /* For each doomedDiscussion, check if it still exists or not */
-                doomedDiscussions.forEach(item => {
-                    found = discussions.find(discussion => item.test(discussion.title));
-                    if (found) {
-                        tapTest.fail(`The discussion '${item}' was marked to be deleted but still exists`);
-                    } else {
-                        tapTest.pass(`The discussion '${item}' was deleted`);
-                    }
-                });
+                if (discussions.length > 0) {
+                    discussions.forEach(discussion => {
+                        found = doomedDiscussions.find(doomed => doomed.test(discussion.title));
+                        if (found) {
+                            tapTest.fail(`The discussion '${discussion.title}' was marked to be deleted but still exists`);
+                        } else {
+                            tapTest.pass(`The discussion '${discussion.title}' was deleted`);
+                        }
+                    });
+                }
                 deleteCallback(null);
             });
         }
@@ -48,8 +50,7 @@ module.exports = (course, callback) => {
                 course.error(seriesErr);
             }
             tapTest.end();
+            callback(null, course);
         });
     });
-
-    callback(null, course);
 };
