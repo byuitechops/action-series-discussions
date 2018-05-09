@@ -63,6 +63,9 @@ function buildPutObj(discussion) {
         'published': discussion.published,
         'lock_at': discussion.lock_at,
         'require_initial_post': discussion.require_initial_post,
+        'position': discussion.position,
+        'pinned': discussion.pinned,
+        'locked': discussion.locked,
     };
 }
 
