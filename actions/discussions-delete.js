@@ -6,12 +6,12 @@
  ******************************************************************************/
 module.exports = (course, discussion, callback) => {
     try {
-        //only add the platforms your grandchild should run in
-        var validPlatforms = ['online', 'pathway'];
-        var validPlatform = validPlatforms.includes(course.settings.platform);
+
+
+
 
         /* If the item is marked for deletion, do nothing */
-        if (discussion.techops.delete === true || validPlatform !== true) {
+        if (discussion.techops.delete === true) {
             callback(null, course, discussion);
             return;
         }
